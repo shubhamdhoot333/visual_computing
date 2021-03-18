@@ -1,0 +1,23 @@
+#include<dos.h>
+#include<conio.h>
+#include<graphics.h>
+#include<stdio.h>
+void main()
+{
+int gd=DETECT,gm;
+clrscr();
+initgraph(&gd,&gm,"c:\\turboc3\\bgi");
+setcolor(RED);
+setbkcolor(BLUE);
+//circle
+printf("circle\n");
+circle(120,270,30);
+//line
+printf("line\n");
+line(50,40,190,40);
+//rectangle
+printf(" rectangle\n");
+rectangle(125,115,215,165);
+getch();
+closegraph();
+}

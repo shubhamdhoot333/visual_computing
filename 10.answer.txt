@@ -1,0 +1,43 @@
+program10
+
+part(a) blur
+
+import cv2
+im = cv2.imread('s1.jpg',1)  
+cv2.imshow('Original Image',im)  
+cv2.imshow('Blurred Image', cv2.blur(im, (3,3)))  
+cv2.waitKey(0)  
+cv2.destroyAllWindows()
+
+
+part(b)
+
+
+import cv2
+import numpy as np
+
+img1 = cv2.imread('s1.jpg',1)
+filter = np.array([[-1, -1, -1], [-1, 9, -1], [-1, -1, -1]])
+sharpen_img_1=cv2.filter2D(img1,-1,filter)
+cv2.imshow('image',sharpen_img_1)
+cv2.waitKey(0)
+
+part (c)  edge detction
+
+
+import cv2 
+import numpy as np 
+
+FILE_NAME = 's1.jpg'
+try: 
+	img = cv2.imread(FILE_NAME) 
+
+	edges = cv2.Canny(img, 100, 200) 
+
+	
+	cv2.imwrite('result.jpg', edges) 
+	
+except IOError: 
+	print ('Error while reading files !!!') 
+
+  

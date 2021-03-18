@@ -1,0 +1,38 @@
+#include<graphics.h>
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<dos.h>
+void scaling();
+void main()
+{
+	int gd=DETECT,gm;
+	initgraph(&gd,&gm,"c:\\turboc3\\bgi");
+	clrscr();
+	printf("\n3.scaling");
+	scaling();
+	getch();
+
+}
+void scaling()
+    {
+	   int sx,sy,xn,yn,xm,ym,a;
+		rectangle(200,200,300,300);
+		printf("enter the scaling factors: ");
+		scanf("%d%d",&sx,&sy);
+			setcolor(GREEN);
+			rectangle(200,200,(300-200)*sx,(300-200)*sy);
+			getch();
+		 printf("want old size then enter 1 either 0");
+		 scanf("%d",&a);
+		 if(a==1)
+		 {
+		 setcolor(RED);
+		 rectangle(200,200,300,300);
+		 }
+		 else
+		 {
+		 printf("your work is complete");
+		 }
+		}

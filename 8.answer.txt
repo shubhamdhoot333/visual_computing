@@ -1,0 +1,66 @@
+program
+
+part (a)scaling
+
+import cv2  
+img = cv2.imread('s1.jpg', 1)  
+scale = 60  
+width = int(img.shape[1] * scale / 100)  
+height = int(img.shape[0] * scale / 100)  
+dim = (width, height)  
+# resize image  
+resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)  
+  
+print('Resized Dimensions : ', resized.shape)  
+  
+cv2.imshow("Resized image", resized)  
+cv2.waitKey(0)  
+cv2.destroyAllWindows()  
+
+
+
+part(b)rotation
+
+import cv2  
+img = cv2.imread('s1.jpg',1)  
+(h, w) = img.shape[:2]  
+center = (w / 2, h / 2)  
+  
+angle90 = 90  
+ 
+scale = 1.0  
+M = cv2.getRotationMatrix2D(center, angle90, scale)  
+rotated90 = cv2.warpAffine(img, M, (h, w))  
+  
+cv2.imshow('Image rotated by 90 degrees', rotated90)  
+cv2.waitKey(0) 
+cv2.destroyAllWindows()  
+
+
+part(c) translation/shifting
+
+import cv2 
+import numpy as np 
+  
+FILE_NAME = 's1.jpg'
+M = np.float32([[1, 0, 100], [0, 1, 50]]) 
+  
+try: 
+  
+    img = cv2.imread(FILE_NAME) 
+    (rows, cols) = img.shape[:2] 
+  
+    res = cv2.warpAffine(img, M, (cols, rows)) 
+  
+    cv2.imwrite('result.jpg', res) 
+except IOError: 
+    print ('Error while reading files !!!') 
+
+part (d) croping
+
+import cv2
+import numpy as np
+image = cv2.imread('s1.jpg',1)
+cropped = image[70:170, 440:540]
+cv2.imshow("cropped", cropped)
+cv2.waitKey(0)

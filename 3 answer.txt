@@ -1,0 +1,61 @@
+//flood fill program
+
+
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+#include<stdio.h>
+void flood(int,int,int,int);
+void main()
+{
+int gd=DETECT,gm;
+clrscr();
+initgraph(&gd,&gm,"c:/TURBOC3/bgi");
+rectangle(50,50,100,100);
+flood(55,55,10,0);
+getch();
+}
+
+void flood(int x,int y,int fillcolor,int oldcolor)
+{
+if(getpixel(x,y)==oldcolor)
+{
+delay(5);
+putpixel(x,y,fillcolor);
+flood(x+1,y,fillcolor,oldcolor);
+flood(x-1,y,fillcolor,oldcolor);
+flood(x,y+1,fillcolor,oldcolor);
+flood(x,y-1,fillcolor,oldcolor);
+}
+}
+
+//boundary fill program
+
+#include<graphics.h>
+#include<dos.h>
+#include<stdio.h>
+void boundfill(int,int,int,int);
+void main()
+{
+int gd=DETECT,gm;
+clrscr();
+initgraph(&gd,&gm,"c:/TURBOC3/bgi");
+rectangle(50,50,100,100);
+boundfill(55,55,4,10);
+getch();
+}
+
+void boundfill(int x,int y,int fill,int old)
+{
+int current;
+current=getpixel(x,y);
+if((current!=old)&&(current!=fill))
+{
+delay(5);
+putpixel(x,y,fill);
+boundfill(x+1,y,fillcolor,oldcolor);
+boundfill(x-1,y,fillcolor,oldcolor);
+boundfill(x,y+1,fillcolor,oldcolor);
+boundfill(x,y-1,fillcolor,oldcolor);
+}
+}

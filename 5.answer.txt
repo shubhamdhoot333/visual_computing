@@ -1,0 +1,117 @@
+#include<conio.h>
+#include<stdio.h>
+#include<graphics.h>
+#include<math.h>
+void main()
+{
+clrscr();
+
+int gd=DETECT,gm;
+int x,y,a,t,c,left,right,top,bottom,sx,sy;
+int l1,r1,t1,b1;
+initgraph(&gd,&gm,"c:\\turboc3\\bgi");
+printf("enter the point of rectangle");
+scanf("%d%d%d%d",&left,&right,&top,&bottom);
+setcolor(RED);
+rectangle(left,top,right,bottom);
+getch();
+
+printf("\n 1.translation\n 2.scalling\n 3.exit \n ");
+scanf("%d",&c);
+
+switch(c)
+{
+case 1:
+printf("enter translation factor");
+scanf("%d%d",&x,&y);
+l1=left+x;
+t1=top+y;
+r1=right+x;
+b1=bottom+y;
+setcolor(BLUE);
+rectangle(l1,t1,r1,b1);
+getch();
+break;
+
+case 2:
+printf("enter scalling factor");
+scanf("%d%d",&sx,&sy);
+left=left*sx;
+top=top*sy;
+right=right*sx;
+bottom=bottom*sy;
+setcolor(BLUE);
+rectangle(left,top,right,bottom);
+getch();
+break;
+
+case 3:
+break;
+
+}
+}
+
+
+
+
+					part 2
+
+
+#include<conio.h>
+#include<stdio.h>
+#include<graphics.h>
+#include<math.h>
+void main()
+{
+clrscr();
+
+int gd=DETECT,gm;
+
+int x,y,a,t,c;
+int left,right,top,bottom;
+int sx,sy;
+int l1,r1,t1,b1;
+initgraph(&gd,&gm,"c:\\turboc3\\bgi");
+printf("enter the point of rectangle");
+scanf("%d%d%d%d",&left,&right,&top,&bottom);
+setcolor(RED);
+rectangle(left,top,right,bottom);
+getch();
+
+printf("\n 1.translation\n 2.rotation\n 3.exit \n ");
+scanf("%d",&c);
+switch(c)
+{
+case 1:
+printf("enter translation factor");
+scanf("%d%d",&x,&y);
+l1=left+x;
+t1=top+y;
+r1=right+x;
+b1=bottom+y;
+setcolor(BLUE);
+rectangle(l1,t1,r1,b1);
+getch();
+break;
+
+case 2:
+printf("enter the rotation angle");
+scanf("%d",&a);
+t=(3.14*a)/180;
+left=abs(left*cos(t)-top*sin(t));
+top=abs(left*sin(t)+top*cos(t));
+right=abs(right*cos(t)-bottom*sin(t));
+bottom=abs(right*sin(t)+bottom*cos(t));
+setcolor(BLUE);
+rectangle(left,top,right,bottom);
+getch();
+ break;
+
+case 3:
+ break;
+
+}
+}
+
+
+
